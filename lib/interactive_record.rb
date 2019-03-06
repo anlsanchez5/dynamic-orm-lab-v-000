@@ -55,7 +55,7 @@ class InteractiveRecord
 
   def self.find_by_name(name)
     DB[:conn].results_as_hash = true
-    DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE name = ? GROUP BY id ORDER BY cid",name)
+    sql = DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE name = ? GROUP BY id ORDER BY cid",name)
   end
 
   def self.find_by(attribute)
