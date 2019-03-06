@@ -40,7 +40,7 @@ class InteractiveRecord
   #  binding.pry
     values = []
     col_names = self.class.column_names.delete_if {|col_name| col_name == "id"}
-    col_names.column_names.each do |column_name|
+    col_names.each do |column_name|
       binding.pry
       values << "'#{send(column_name)}'" unless send(column_name).nil?
     end
