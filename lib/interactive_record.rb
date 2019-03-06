@@ -60,6 +60,7 @@ class InteractiveRecord
   def self.find_by(options = {})
     col_name = options.keys.first.to_s
     value = options.values.first
+    binding.pry
     DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{col_name} = ?", value)
   end
 end
