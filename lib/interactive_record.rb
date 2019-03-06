@@ -38,7 +38,7 @@ class InteractiveRecord
   def values_for_insert
   #  binding.pry
     values = []
-    self.class.column_names.each do |column_name|
+    col_names_for_insert.each do |column_name|
       values << "'#{send(column_name)}'" unless send(column_name).nil?
     end
     values.join(', ')
