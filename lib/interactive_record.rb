@@ -39,7 +39,7 @@ class InteractiveRecord
   #  binding.pry
     values = []
     self.class.column_names.each do |column_name|
-      binding.pru\y
+      binding.pry
       values << "'#{send(column_name)}'" unless send(column_name).nil?
     end
     values.join(', ')
