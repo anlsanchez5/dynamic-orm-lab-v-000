@@ -13,7 +13,7 @@ class InteractiveRecord
     sql = "PRAGMA table_info('#{table_name}')"
 
     table_info = DB[:conn].execute(sql)
-  
+
     column_names = []
     table_info.each do |column|
       column_names << column["name"]
@@ -50,7 +50,8 @@ class InteractiveRecord
   end
 
   def self.find_by_name(name)
-    DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE name = ?",name)
+    sql = DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE name = ?",name)
+    sql
   end
 
   def self.find_by(attribute)
