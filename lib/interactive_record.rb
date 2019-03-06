@@ -51,6 +51,7 @@ class InteractiveRecord
   end
 
   def self.find_by_name(name)
+    DB[:conn].results_as_hash = true
     DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE name = ?",name)
   end
 
