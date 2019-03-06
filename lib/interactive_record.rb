@@ -57,7 +57,7 @@ class InteractiveRecord
     DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE name = ?",name)
   end
 
-  def self.find_by(key:nil)
+  def self.find_by(options{})
     binding.pry
     DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{attribute} = ?", value)
   end
