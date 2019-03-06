@@ -58,7 +58,7 @@ class InteractiveRecord
   end
 
   def self.find_by(key:nil)
-    attribute = column_names[index]
+    binding.pry
     DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{attribute} = ?", value)
   end
 end
